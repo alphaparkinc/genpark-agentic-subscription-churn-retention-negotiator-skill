@@ -1,0 +1,33 @@
+{
+  "name": "genpark-agentic-subscription-churn-retention-negotiator-skill",
+  "version": "1.0.0",
+  "description": "Autonomous Subscription Churn Prediction & Dynamic Retention Negotiator. Evaluates subscriber telemetry (usage drop-off, support friction, billing price sensitivity, tenure LTV), diagnoses cancellation root cause, and dynamically negotiates margin-optimal save offers (subscription pause, tier right-sizing, or loyalty credit).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.llinkedin.com/company/92955550",
+  "tools": [
+    {
+      "name": "negotiate_subscription_retention",
+      "description": "Compute subscriber churn risk and LTV, diagnose cancellation reason, and synthesize personalized retention counter-offers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "evaluate_churn_risk",
+              "negotiate_retention_offer"
+            ],
+            "description": "Retention negotiation action."
+          },
+          "subscriber_profile": {
+            "type": "object",
+            "description": "Subscriber profile with user_id, monthly_arpu_usd, tenure_months, active_days_30d, cancellation_reason."
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
+    }
+  ]
+}
